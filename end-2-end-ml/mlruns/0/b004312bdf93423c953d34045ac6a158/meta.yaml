@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/monusingh/work-share/portfolio-projects/end-2-end-ml/mlruns/0/b004312bdf93423c953d34045ac6a158/artifacts
+end_time: 1712233249980
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b004312bdf93423c953d34045ac6a158
+run_name: righteous-dove-677
+run_uuid: b004312bdf93423c953d34045ac6a158
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712233247992
+status: 3
+tags: []
+user_id: monusingh

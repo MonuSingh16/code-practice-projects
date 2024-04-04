@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/monusingh/work-share/portfolio-projects/end-2-end-ml/mlruns/0/492f431dd9e544998aaae96e32f53b79/artifacts
+end_time: 1712233303664
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 492f431dd9e544998aaae96e32f53b79
+run_name: salty-hen-522
+run_uuid: 492f431dd9e544998aaae96e32f53b79
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712233301712
+status: 3
+tags: []
+user_id: monusingh
