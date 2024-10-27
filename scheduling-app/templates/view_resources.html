@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<h3 class="text-center">{{ audit_title }}</h3>
+<table class="table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Select</th>
+            <th scope="col">BankID</th>
+            <th scope="col">FullName</th>
+            <th scope="col">JobTitle</th>
+            <th scope="col">Availability Dates</th>
+            <th scope="col">Utilization (%)</th>
+            <th scope="col">Role</th>
+            <th scope="col">Days</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form method="post">
+            {% for emp in employees %}
+            <tr {% if emp.selected %}class="table-success"{% endif %}>
+                <td>
+                    <input type="checkbox" name="selected_employees" value="{{ emp['BankID'] }}" {% if emp.selected %}checked disabled{% endif %}>
+                </td>
+                <td>{{ emp['BankID'] }}</td>
+                <td>{{ emp['FullName'] }}</td>
+                <td>{{ emp['JobTitle'] }}</td>
+                <td>{{ emp['availability_dates'] }}</td>
+                <td>{{ emp['Utilization Percent'] }}</td>
+                <td>
+                    <select name="role_{{ emp['BankID'] }}" class="form-control">
+                        <option value="Team Member" {% if emp['RecommendedRole'] == 'Team Member' %}selected{% endif %}>Team Member</option>
+                        <option value="Team Leader" {% if emp['RecommendedRole'] == 'Team Leader' %}selected{% endif %}>Team Leader</option>
+                        <option value="Team Manager" {% if emp['RecommendedRole'] == 'Team Manager' %}selected{% endif %}>Team Manager</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" name="days_{{ emp['BankID'] }}" class="form-control" value="{{ emp['selected_days'] }}" min="1" max="{{ emp['available_days'] }}" {% if emp.selected %}readonly{% endif %}>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="8">
+                    <button type="submit" class="btn btn-primary float-left">Submit Selection</button>
+                    <a href="{{ url_for('clear_selections', audit_number=audit_number) }}" class="btn btn-danger float-right">Clear Selection</a>
+                </td>
+            </tr>
+        </form>
+    </tbody>
+</table>
+
+<!-- Pagination -->
+<nav aria-label="Page navigation" class="text-center">
+    <ul class="pagination justify-content-center">
+        {% for p in range(1, total_pages + 1) %}
+        <li class="page-item {% if page == p %}active{% endif %}">
+            <a class="page-link" href="{{ url_for('view_resources', audit_number=audit_number, page=p) }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+{% endblock %}

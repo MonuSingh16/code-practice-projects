@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ username }}!</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <hr>
+        <!-- Conference Room Visualization will go here -->
+        <div class="conference-room">
+            <!-- Conference table -->
+            <div class="conference-table">
+                <!-- Seats around the table -->
+                <!-- Example seat -->
+                <div class="seat manager-seat">Manager</div>
+                <!-- Leader Seats -->
+                <div class="seat leader-seat">Leader 1</div>
+                <div class="seat leader-seat">Leader 2</div>
+
+                <!-- Member Seats -->
+                <div class="seat member-seat">Member 1</div>
+                <div class="seat member-seat">Member 2</div>
+                <div class="seat member-seat">Member 4</div>
+                <div class="seat member-seat">Member 5</div>
+                <div class="seat member-seat">Member 6</div>
+                <div class="seat member-seat">Member 7</div>
+                <div class="seat member-seat">Member 8</div>
+                <!-- Add more seats as needed -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
